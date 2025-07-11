@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV. Alam Raya Trans</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+    header { background-color: #cc0000; color: #fff; padding: 20px 0; text-align: center; }
+    header img { max-height: 100px; margin-bottom: 10px; }
+    nav { background-color: #990000; text-align: center; padding: 10px; }
+    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    section { padding: 30px; }
+    h2 { color: #cc0000; }
+    footer { background-color: #f4f4f4; text-align: center; padding: 20px; font-size: 14px; }
+    form { max-width: 500px; margin: 20px auto; display: flex; flex-direction: column; gap: 10px; }
+    input, select, textarea { padding: 10px; font-size: 16px; }
+    button { padding: 10px; background-color: #cc0000; color: white; border: none; cursor: pointer; }
+    ul { list-style-type: disc; padding-left: 20px; }
+    .floating-wa {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    .bidang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .bidang-grid div {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo-art.png" alt="Logo CV. Alam Raya Trans">
+  <h1>CV. Alam Raya Trans</h1>
+  <p>Solusi Perusahaan Vendor Terpercaya</p>
+</header>
+
+<nav>
+  <a href="#tentang">Tentang</a>
+  <a href="#layanan">Layanan</a>
+  <a href="#keunggulan">Keunggulan</a>
+  <a href="#bidang">Bidang Usaha</a>
+  <a href="#klien">Klien</a>
+  <a href="#kontak">Kontak</a>
+</nav>
+
+<section id="tentang">
+  <h2>Tentang Kami</h2>
+  <p>Kami perusahaan vendor profesional yang berbasis di Cileungsi yang bergerak dibidang jasa Vendor seperti vendor logistik, vendor jasa konstruksi, vendor penyedia bahan baku support dan vendor penyedia tenaga kerja.</p>
+  <p><strong>Misi kami:</strong> Menjadi perusahaan vendor yang membangun hubungan jangka panjang dengan pelanggan dan Mitra bisnis.</p>
+</section>
+
+<section id="layanan">
+  <h2>Layanan Kami</h2>
+  <ul>
+    <li>Penyedia jasa logistik pengiriman barang.</li>
+    <li>Penyedia jasa konstruksi perbaikan, perawatan dll.</li>
+    <li>Penyedia bahan baku support yang dibutuhkan oleh perusahaan Mitra bisnis.</li>
+    <li>Penyedia tenaga kerja yang profesional dan ahli dibidangnya.</li>
+  </ul>
+</section>
+
+<section id="keunggulan">
+  <h2>Kenapa Memilih Kami</h2>
+  <ul>
+    <li>Menyediakan layanan sesuai kebutuhan pelanggan</li>
+    <li>Efisien dan hemat biaya</li>
+    <li>Kepuasan pelanggan adalah prioritas kami</li>
+    <li>Mudah, cepat, aman, dan bisa disesuaikan</li>
+  </ul>
+</section>
+
+<section id="bidang">
+  <h2>Bidang Usaha</h2>
+  <div class="bidang-grid">
+    <div>
+      <h3>Vendor Logistik</h3>
+      <p>Pengiriman barang dan dukungan armada logistik.</p>
+    </div>
+    <div>
+      <h3>Vendor Konstruksi</h3>
+      <p>Perbaikan, pembangunan, renovasi dan maintenance.</p>
+    </div>
+    <div>
+      <h3>Bahan Baku & Supply</h3>
+      <p>Pengadaan bahan penunjang kegiatan operasional mitra bisnis.</p>
+    </div>
+    <div>
+      <h3>Tenaga Kerja</h3>
+      <p>Penyediaan SDM profesional dan siap kerja sesuai kebutuhan industri.</p>
+    </div>
+  </div>
+</section>
+
+<section id="konsultasi">
+  <h2>Form Konsultasi Vendor</h2>
+  <p>Silakan isi form berikut untuk menginformasikan kebutuhan vendor Anda. Kami akan segera menghubungi Anda.</p>
+  <form onsubmit="kirimKonsultasi(event)">
+    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="perusahaan" placeholder="Nama Perusahaan" required>
+    <select id="kebutuhan">
+      <option value="" disabled selected>Kebutuhan Vendor</option>
+      <option value="Logistik">Vendor Logistik</option>
+      <option value="Konstruksi">Vendor Konstruksi</option>
+      <option value="Bahan Baku">Vendor Bahan Baku</option>
+      <option value="Tenaga Kerja">Vendor Tenaga Kerja</option>
+      <option value="Lainnya">Lainnya</option>
+    </select>
+    <textarea id="pesan" placeholder="Deskripsikan kebutuhan Anda..." rows="4" required></textarea>
+    <button type="submit">Kirim via WhatsApp</button>
+  </form>
+</section>
+
+<script>
+function kirimKonsultasi(event) {
+  event.preventDefault();
+  const nama = document.getElementById("nama").value;
+  const email = document.getElementById("email").value;
+  const perusahaan = document.getElementById("perusahaan").value;
+  const kebutuhan = document.getElementById("kebutuhan").value;
+  const pesan = document.getElementById("pesan").value;
+
+  const teks = `Halo, saya ingin konsultasi kebutuhan vendor:%0A%0A` +
+               `Nama: ${nama}%0A` +
+               `Email: ${email}%0A` +
+               `Perusahaan: ${perusahaan}%0A` +
+               `Kebutuhan: ${kebutuhan}%0A` +
+               `Pesan: ${pesan}`;
+
+  const url = `https://wa.me/6282112560355?text=${teks}`;
+  window.open(url, '_blank');
+}
+</script>
+
+<section id="klien">
+  <h2>Klien Kami</h2>
+  <ul>
+    <li>PT. KIA Keramik Mas</li>
+    <li>PT. Kokoh Inti Arebama</li>
+    <li>Toko Belanja Keramik</li>
+    <li>PT. Sumber Bangun Logistik</li>
+  </ul>
+</section>
+
+<section id="kontak">
+  <h2>Kontak Kami</h2>
+  <p><strong>WhatsApp:</strong> <a href="https://wa.me/6282112560355">0821 1256 0355</a></p>
+  <p><strong>Email:</strong> <a href="mailto:cvalamrayatrans@gmail.com">cvalamrayatrans@gmail.com</a></p>
+  <p><strong>Alamat:</strong> Jl. Tikungan Jambrong, Kp. Cirumput RT 08/02, Desa Limusnunggal, Kec. Cileungsi, Kab. Bogor</p>
+  <div style="margin-top: 20px;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.9350405320972!2d106.98382989999999!3d-6.426696599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699b0466cf92ed%3A0x3e91d643f3609d6a!2sLimus%20Nunggal%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor!5e0!3m2!1sid!2sid!4v1720583177585!5m2!1sid!2sid"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 CV. Alam Raya Trans. Seluruh hak cipta dilindungi.</p>
+</footer>
+
+<a href="https://wa.me/6282112560355" target="_blank" class="floating-wa">
+  💬 Chat WhatsApp
+</a>
+
+</body>
+</html>
